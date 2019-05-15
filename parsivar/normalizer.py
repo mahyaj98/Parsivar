@@ -480,16 +480,16 @@ class PinglishNormalizer():
             if word in self.en_dict:
                 pinglish_words_list[i] = self.en_dict[word]#.decode("utf-8")
                 #inp = inp.replace(word, enDict[word], 1)
-            else:
-                ch = self.characterize(word)
-                pr = self.map_char(ch)
-                amir = self.make_word(pr)
-                for wd in amir:
-                    am = self.escalation(wd)
-                    asd = ''.join(am)
-                    if asd in self.fa_dict:
-                        pinglish_words_list[i] = asd#.decode("utf-8")
-                        #inp = inp.replace(word, asd, 1)
+            #else:
+            #    ch = self.characterize(word)
+            #    pr = self.map_char(ch)
+            #    amir = self.make_word(pr)
+            #    for wd in amir:
+            #        am = self.escalation(wd)
+            #        asd = ''.join(am)
+            #        if asd in self.fa_dict:
+            #            pinglish_words_list[i] = asd#.decode("utf-8")
+            #            #inp = inp.replace(word, asd, 1)
         inp = " ".join(x for x in pinglish_words_list)
         return inp
 
@@ -592,7 +592,7 @@ class PinglishNormalizer():
             word_list_temp = []
             for tmp_word_list in word_list:
                 for chch in char:
-                    tmp = copy.deepcopy(tmp_word_list)
+                    tmp = tmp_word_list
                     tmp.append(chch)
                     word_list_temp.append(tmp)
             word_list = word_list_temp
